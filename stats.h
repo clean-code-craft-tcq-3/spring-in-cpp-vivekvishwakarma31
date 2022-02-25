@@ -1,5 +1,5 @@
 #include <vector>
 
 namespace Statistics {
-    void ComputeStatistics(const std::vector<___>& );
+    void ComputeStatistics(const std::vector<int>& );
 }
