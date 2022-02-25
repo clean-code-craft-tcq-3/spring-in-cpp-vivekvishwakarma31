@@ -1,5 +1,5 @@
 #include "stats.h"
 
-void Statistics::ComputeStatistics(const std::vector<int>& ) {
+void Statistics::ComputeStatistics(const std::vector<double>& ) {
     //Implement statistics here
 }
