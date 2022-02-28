@@ -22,7 +22,7 @@ namespace Statistics {
           m_max = max;
           m_min = min; 
         }
-    }
+    };
     
     Stats ComputeStatistics(const std::vector<float>& );
 }
