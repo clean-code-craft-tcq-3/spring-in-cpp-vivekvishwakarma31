@@ -9,9 +9,9 @@ TEST_CASE("reports average, minimum and maximum") {
     std::vector<float> data{1.5, 8.9, 3.1, 4.5};
     auto computedStats = Statistics::ComputeStatistics(data);
     float epsilon = 0.001;
-    REQUIRE(std::abs(computedStats.average - 4.525) < epsilon);
-    REQUIRE(std::abs(computedStats.max - 8.9) < epsilon);
-    REQUIRE(std::abs(computedStats.min - 1.5) < epsilon);
+    REQUIRE(std::abs(computedStats.m_avg  - 4.525) < epsilon);
+    REQUIRE(std::abs(computedStats.m_max  - 8.9) < epsilon);
+    REQUIRE(std::abs(computedStats.m_min  - 1.5) < epsilon);
 }
 
 TEST_CASE("average is NaN for empty array") {
