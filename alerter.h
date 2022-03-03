@@ -10,10 +10,7 @@ class IAlerter
     {
     
     }
-    virtual void SetAlerter(int i)
-    {
-        std::cout << "i" << endl;
-    }
+    virtual void SetAlerter(int);
 };
 
 class EmailAlert : public IAlerter
