@@ -21,18 +21,18 @@ class EmailAlert : public IAlerter
     public:
     EmailAlert()
     {
-        DemailSent = 0;
+        emailSent = 0;
     }
     void displayEmail()
     {
-        std::cout << "DemailSent : " << DemailSent << std::endl;
+        std::cout << "DemailSent : " << emailSent << std::endl;
     }
     
     void SetAlerter(int i)
     {
-        DemailSent = i;
+        emailSent = i;
     }
-    int DemailSent;
+    int emailSent;
 };
 
 class LEDAlert : public IAlerter
@@ -40,19 +40,19 @@ class LEDAlert : public IAlerter
     public:
     LEDAlert()
     {
-        DledGlows = 0;
+        ledGlows = 0;
     }
     void displayLed()
     {
-        std::cout << "DledGlows : " << DledGlows <<std::endl;
+        std::cout << "ledGlows : " << ledGlows <<std::endl;
     }
     
     void SetAlerter(int i)
     {
-        DledGlows = i;
+        ledGlows = i;
     }
     
-    int DledGlows;
+    int ledGlows;
 };
 
 class StatsAlerter 
