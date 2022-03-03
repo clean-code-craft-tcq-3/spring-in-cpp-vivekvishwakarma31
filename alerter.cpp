@@ -9,8 +9,8 @@ int StatsAlerter::checkAndAlert(std::vector<float> data)
 
         if(computedStats.m_max > m_maxThreshold)
         {
-            alerter[0]->SetAlerter(10);
-            alerter[1]->SetAlerter(10);
+            alerter[0]->SetAlerter(1);
+            alerter[1]->SetAlerter(1);
            return 1;   
         }
         else
