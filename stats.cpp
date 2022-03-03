@@ -12,6 +12,6 @@ Stats Statistics::ComputeStatistics(const std::vector<float>&  data) {
     sum=accumulate(data.begin(), data.end() , 0);
     count = data.size();
     mystats.m_avg=(sum/count);
-    return st;
+    return mystats;
     
 }
