@@ -10,7 +10,9 @@ class IAlerter
     {
     
     }
-    virtual void SetAlerter(int);
+    virtual void SetAlerter(int)
+    {
+    }
 };
 
 class EmailAlert : public IAlerter
