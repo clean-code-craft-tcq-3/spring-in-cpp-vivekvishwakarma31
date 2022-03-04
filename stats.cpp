@@ -9,7 +9,10 @@ Statistics::Stats Statistics::ComputeStatistics(const std::vector<float>&  data)
     
     mystats.m_max = *max_element(data.begin(),data.end());
     mystats.m_min = *min_element(data.begin(),data.end());
-    sum=accumulate(data.begin(), data.end() , 0);
+    
+      for (int i = 0; i < mystats.size(); i++)
+        sum+=mystats[i];
+    
     count = data.size();
     mystats.m_avg=(sum/count);
     return mystats;
