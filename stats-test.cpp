@@ -2,24 +2,31 @@
 
 #include "catch.hpp"
 #include "stats.h"
+#include "alerter.h"
 
 #include <cmath>
 
 TEST_CASE("reports average, minimum and maximum") {
-    auto computedStats = Statistics::ComputeStatistics({1.5, 8.9, 3.2, 4.5});
+    std::vector<float> data{1.5, 8.9, 3.1, 4.5};
+    auto computedStats = Statistics::ComputeStatistics(data);
     float epsilon = 0.001;
-    REQUIRE(std::abs(computedStats.average - 4.525) < epsilon);
-    REQUIRE(std::abs(computedStats.max - 8.9) < epsilon);
-    REQUIRE(std::abs(computedStats.min - 1.5) < epsilon);
+    REQUIRE(std::abs(computedStats.m_avg  - 4.5) < epsilon);
+    REQUIRE(std::abs(computedStats.m_max  - 8.9) < epsilon);
+    REQUIRE(std::abs(computedStats.m_min  - 1.5) < epsilon);
 }
 
 TEST_CASE("average is NaN for empty array") {
-    auto computedStats = Statistics::ComputeStatistics({});
+        std::vector<float> data{-1.5, -8.9, -3.1, -4.5};
+    auto computedStats = Statistics::ComputeStatistics(data);
     //All fields of computedStats (average, max, min) must be
     //NAN (not-a-number), as defined in math.h
     
     //Design the REQUIRE statement here.
     //Use http://www.cplusplus.com/reference/cmath/isnan/
+    
+    REQUIRE(isnan( sqrt(computedStats.m_avg) ) );
+    REQUIRE(isnan( sqrt(computedStats.m_max) ) );
+    REQUIRE(isnan( sqrt(computedStats.m_min) ) );
 }
 
 TEST_CASE("raises alerts when max is greater than threshold") {
@@ -31,6 +38,6 @@ TEST_CASE("raises alerts when max is greater than threshold") {
     StatsAlerter statsAlerter(maxThreshold, alerters);
     statsAlerter.checkAndAlert({99.8, 34.2, 4.5, 6.7});
 
-    REQUIRE(emailAlert.emailSent);
-    REQUIRE(ledAlert.ledGlows);
+    REQUIRE(emailAlert.emailSent == 1);
+    REQUIRE(ledAlert.ledGlows == 1);
 }
