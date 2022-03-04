@@ -16,7 +16,7 @@ TEST_CASE("reports average, minimum and maximum") {
 }
 
 TEST_CASE("average is NaN for empty array") {
-    std::vector<float> data{};
+    std::vector<float> data;
     auto computedStats = Statistics::ComputeStatistics(data);
     //All fields of computedStats (average, max, min) must be
     //NAN (not-a-number), as defined in math.h
